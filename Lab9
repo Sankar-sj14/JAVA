@@ -1,0 +1,191 @@
+package resume;
+
+import java.awt.Color;
+import java.awt.EventQueue;
+
+import javax.swing.BorderFactory;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.Border;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JTabbedPane;
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.SwingConstants;
+import javax.swing.ImageIcon;
+import javax.swing.JTextArea;
+import javax.swing.JTextPane;
+
+public class lab9 extends JFrame {
+
+	private JPanel contentPane;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					lab9 frame = new lab9();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public lab9() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 782, 716);
+		contentPane = new JPanel();
+		contentPane.setBackground(new Color(255, 243, 168));
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		tabbedPane.setBounds(381, 10, 5, 5);
+		contentPane.add(tabbedPane);
+		Border blackline = BorderFactory.createLineBorder(Color.black);
+		
+		JLabel lblNewLabel_4 = new JLabel("\n");
+		lblNewLabel_4.setIcon(new ImageIcon("/Users/sankar/Downloads/icons8-administrator-male-80.png"));
+		lblNewLabel_4.setBounds(632, 59, 78, 117);
+		contentPane.add(lblNewLabel_4);
+		
+		JTextArea txtrObjectiveTo = new JTextArea();
+		txtrObjectiveTo.setLineWrap(true);
+		txtrObjectiveTo.setBackground(new Color(252, 195, 100));
+		txtrObjectiveTo.setForeground(new Color(255, 255, 255));
+		txtrObjectiveTo.setFont(new Font("Verdana", Font.BOLD, 18));
+		txtrObjectiveTo.setWrapStyleWord(true);
+		txtrObjectiveTo.setText("Progress not perfection.\n");
+		txtrObjectiveTo.setBounds(10, 85, 557, 44);
+		contentPane.add(txtrObjectiveTo);
+		
+		JTextArea txtrNivedithaGokulmuthu = new JTextArea();
+		txtrNivedithaGokulmuthu.setWrapStyleWord(true);
+		txtrNivedithaGokulmuthu.setText("Education Summary");
+		txtrNivedithaGokulmuthu.setForeground(Color.WHITE);
+		txtrNivedithaGokulmuthu.setFont(new Font("Verdana", Font.BOLD, 18));
+		txtrNivedithaGokulmuthu.setBackground(new Color(166, 140, 91));
+		txtrNivedithaGokulmuthu.setBounds(10, 163, 557, 44);
+		contentPane.add(txtrNivedithaGokulmuthu);
+		
+		JPanel panel = new JPanel();
+		panel.setBackground(new Color(230, 186, 110));
+		panel.setBounds(570, 308, 188, 189);
+		contentPane.add(panel);
+		panel.setLayout(null);
+		
+		JTextArea txtrDesignAndImplementation = new JTextArea();
+		txtrDesignAndImplementation.setBounds(10, 45, 168, 140);
+		panel.add(txtrDesignAndImplementation);
+		txtrDesignAndImplementation.setWrapStyleWord(true);
+		txtrDesignAndImplementation.setText("Design and implementation of Electronics and Software Systems\r\n\r\nCreative and professional writing\r\n\r\nEvent management and logistics management\r\n");
+		txtrDesignAndImplementation.setLineWrap(true);
+		txtrDesignAndImplementation.setForeground(Color.WHITE);
+		txtrDesignAndImplementation.setFont(new Font("Verdana", Font.PLAIN, 11));
+		txtrDesignAndImplementation.setBackground(new Color(230, 186, 110));
+		
+		JTextArea txtrSkills = new JTextArea();
+		txtrSkills.setBounds(10, 11, 168, 27);
+		panel.add(txtrSkills);
+		txtrSkills.setWrapStyleWord(true);
+		txtrSkills.setText("Skills");
+		txtrSkills.setLineWrap(true);
+		txtrSkills.setForeground(Color.WHITE);
+		txtrSkills.setFont(new Font("Verdana", Font.BOLD, 17));
+		txtrSkills.setBackground(new Color(230, 186, 110));
+		
+		JTextArea txtrEmailIdNivgokulgmailcom = new JTextArea();
+		txtrEmailIdNivgokulgmailcom.setWrapStyleWord(true);
+		txtrEmailIdNivgokulgmailcom.setText("Email ID: vsankarsamjose14@gmail.com");
+		txtrEmailIdNivgokulgmailcom.setLineWrap(true);
+		txtrEmailIdNivgokulgmailcom.setForeground(Color.WHITE);
+		txtrEmailIdNivgokulgmailcom.setFont(new Font("Verdana", Font.PLAIN, 10));
+		txtrEmailIdNivgokulgmailcom.setBackground(new Color(206, 184, 137));
+		txtrEmailIdNivgokulgmailcom.setBounds(577, 229, 181, 27);
+		contentPane.add(txtrEmailIdNivgokulgmailcom);
+		
+		JTextArea txtrPhoneNumber = new JTextArea();
+		txtrPhoneNumber.setWrapStyleWord(true);
+		txtrPhoneNumber.setText("Phone Number: 9446514781\n\r\n");
+		txtrPhoneNumber.setLineWrap(true);
+		txtrPhoneNumber.setForeground(Color.WHITE);
+		txtrPhoneNumber.setFont(new Font("Verdana", Font.PLAIN, 10));
+		txtrPhoneNumber.setBackground(new Color(228, 198, 139));
+		txtrPhoneNumber.setBounds(577, 269, 181, 27);
+		contentPane.add(txtrPhoneNumber);
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setLayout(null);
+		panel_1.setBackground(new Color(206, 184, 137));
+		panel_1.setBounds(570, 510, 188, 158);
+		contentPane.add(panel_1);
+		
+		JTextArea txtrFirstPlaceIn = new JTextArea();
+		txtrFirstPlaceIn.setWrapStyleWord(true);
+		txtrFirstPlaceIn.setText("First Place in IT-Manager\r\n\r\nCertificate of Honour Roll\r\n\r\nCertificate of Higher Distinction\r\n");
+		txtrFirstPlaceIn.setLineWrap(true);
+		txtrFirstPlaceIn.setForeground(Color.WHITE);
+		txtrFirstPlaceIn.setFont(new Font("Verdana", Font.PLAIN, 11));
+		txtrFirstPlaceIn.setBackground(new Color(206, 184, 137));
+		txtrFirstPlaceIn.setBounds(10, 45, 168, 102);
+		panel_1.add(txtrFirstPlaceIn);
+		
+		JTextArea txtrAwards = new JTextArea();
+		txtrAwards.setWrapStyleWord(true);
+		txtrAwards.setText("Awards");
+		txtrAwards.setLineWrap(true);
+		txtrAwards.setForeground(Color.WHITE);
+		txtrAwards.setFont(new Font("Verdana", Font.BOLD, 17));
+		txtrAwards.setBackground(new Color(206, 184, 137));
+		txtrAwards.setBounds(10, 11, 168, 27);
+		panel_1.add(txtrAwards);
+		
+		JTextArea txtrEducationSummary = new JTextArea();
+		txtrEducationSummary.setLineWrap(true);
+		txtrEducationSummary.setWrapStyleWord(true);
+		txtrEducationSummary.setText("CHRIST (Deemed to be University), Bangalore - Master’s in Computer Applications\r\nJUNE 2022 (ONGOING)\r\n\r\nCHRISTIAN COLLEGE CHENGANNUR - Bachelor's in Physics\r\nJUNE 2017 - MARCH 2020\r\n\r\n\r\nCARMEL HSS , CHALAKUDY\r\nJUNE 2015 - MARCH 2017\r\n\r\n\r\n\r\nCARMEL HSS , CHALAKUDY\r\nJUNE 2014 - MARCH 2015");
+		txtrEducationSummary.setForeground(Color.WHITE);
+		txtrEducationSummary.setFont(new Font("Verdana", Font.PLAIN, 10));
+		txtrEducationSummary.setBackground(new Color(230, 186, 110));
+		txtrEducationSummary.setBounds(10, 212, 557, 219);
+		contentPane.add(txtrEducationSummary);
+		
+		JTextArea txtrNivedithaGokulmuthu_1 = new JTextArea();
+		txtrNivedithaGokulmuthu_1.setWrapStyleWord(true);
+		txtrNivedithaGokulmuthu_1.setText("SANKAR SAM JOSE");
+		txtrNivedithaGokulmuthu_1.setForeground(Color.WHITE);
+		txtrNivedithaGokulmuthu_1.setFont(new Font("Verdana", Font.BOLD, 30));
+		txtrNivedithaGokulmuthu_1.setBackground(new Color(148, 135, 106));
+		txtrNivedithaGokulmuthu_1.setBounds(10, 26, 557, 55);
+		contentPane.add(txtrNivedithaGokulmuthu_1);
+		
+		JTextArea txtrProjects = new JTextArea();
+		txtrProjects.setWrapStyleWord(true);
+		txtrProjects.setText("Projects");
+		txtrProjects.setForeground(Color.WHITE);
+		txtrProjects.setFont(new Font("Verdana", Font.BOLD, 18));
+		txtrProjects.setBackground(new Color(166, 140, 91));
+		txtrProjects.setBounds(10, 467, 557, 44);
+		contentPane.add(txtrProjects);
+		
+		JTextArea txtrEducationSummary_1 = new JTextArea();
+		txtrEducationSummary_1.setWrapStyleWord(true);
+		txtrEducationSummary_1.setText("AR in education with  IoT — 2023\r\n\r\nAR in education and healthcare — 2022\r\n\r\nQuantum mechanics — 2020\r\n\r\nAir Quality Index monitoring — 2019");
+		txtrEducationSummary_1.setLineWrap(true);
+		txtrEducationSummary_1.setForeground(Color.WHITE);
+		txtrEducationSummary_1.setFont(new Font("Verdana", Font.PLAIN, 14));
+		txtrEducationSummary_1.setBackground(new Color(230, 186, 110));
+		txtrEducationSummary_1.setBounds(10, 518, 557, 150);
+		contentPane.add(txtrEducationSummary_1);
+	}
+}
