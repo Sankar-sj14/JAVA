@@ -1,1 +1,137 @@
-afsvafvo
+import java.sql.*;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class CRUDJdbcSwing extends JFrame implements ActionListener {
+    private static final String DRIVER = "com.mysql.jdbc.Driver";
+    private static final String URL = "jdbc:mysql://localhost/test";
+    private static final String USERNAME = "root";
+    private static final String PASSWORD = "password";
+
+    private JLabel labelTitle, labelId, labelName, labelEmail;
+    private JTextField textFieldId, textFieldName, textFieldEmail;
+    private JButton buttonCreate, buttonRead, buttonUpdate, buttonDelete;
+
+    private Connection connection;
+    private Statement statement;
+
+    public CRUDJdbcSwing() {
+        super("CRUD Operations with JDBC and Swing");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        labelTitle = new JLabel("CRUD Operations with JDBC and Swing");
+        labelTitle.setFont(new Font("Serif", Font.BOLD, 24));
+
+        labelId = new JLabel("ID:");
+        textFieldId = new JTextField(10);
+
+        labelName = new JLabel("Name:");
+        textFieldName = new JTextField(20);
+
+        labelEmail = new JLabel("Email:");
+        textFieldEmail = new JTextField(20);
+
+        buttonCreate = new JButton("Create");
+        buttonRead = new JButton("Read");
+        buttonUpdate = new JButton("Update");
+        buttonDelete = new JButton("Delete");
+
+        buttonCreate.addActionListener(this);
+        buttonRead.addActionListener(this);
+        buttonUpdate.addActionListener(this);
+        buttonDelete.addActionListener(this);
+
+        JPanel panel = new JPanel(new GridLayout(4, 2));
+        panel.add(labelId);
+        panel.add(textFieldId);
+        panel.add(labelName);
+        panel.add(textFieldName);
+        panel.add(labelEmail);
+        panel.add(textFieldEmail);
+        panel.add(buttonCreate);
+        panel.add(buttonRead);
+        panel.add(buttonUpdate);
+        panel.add(buttonDelete);
+
+        Container contentPane = getContentPane();
+        contentPane.setLayout(new BorderLayout());
+        contentPane.add(labelTitle, BorderLayout.NORTH);
+        contentPane.add(panel, BorderLayout.CENTER);
+
+        pack();
+        setVisible(true);
+
+        try {
+            Class.forName(DRIVER);
+            connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            statement = connection.createStatement();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == buttonCreate) {
+            try {
+                String name = textFieldName.getText();
+                String email = textFieldEmail.getText();
+                String sql = "INSERT INTO users (name, email) VALUES ('" + name + "', '" + email + "')";
+                int rowsInserted = statement.executeUpdate(sql);
+                if (rowsInserted > 0) {
+                    JOptionPane.showMessageDialog(this, "User created successfully!");
+                }
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        } else if (e.getSource() == buttonRead) {
+            try {
+                int id = Integer.parseInt(textFieldId.getText());
+                String sql = "SELECT name, email FROM users WHERE id = " + id;
+                ResultSet rs = statement.executeQuery(sql);
+                if (rs.next()) {
+                    String name = rs.getString("name");
+                    String email = rs.getString("email");
+                    textFieldName.setText(name);
+                    textFieldEmail.setText(email);
+                } else {
+                    JOptionPane.showMessageDialog(this, "User not found!");
+                }
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        } else if (e.getSource() == buttonUpdate) {
+            try {
+                int id = Integer.parseInt(textFieldId.getText());
+                String name = textFieldName.getText();
+                String email = textFieldEmail.getText();
+                String sql = "UPDATE users SET name
+= '" + name + "', email = '" + email + "' WHERE id = " + id;
+int rowsUpdated = statement.executeUpdate(sql);
+if (rowsUpdated > 0) {
+JOptionPane.showMessageDialog(this, "User updated successfully!");
+} else {
+JOptionPane.showMessageDialog(this, "User not found!");
+}
+} catch (Exception ex) {
+ex.printStackTrace();
+}
+} else if (e.getSource() == buttonDelete) {
+try {
+int id = Integer.parseInt(textFieldId.getText());
+String sql = "DELETE FROM users WHERE id = " + id;
+int rowsDeleted = statement.executeUpdate(sql);
+if (rowsDeleted > 0) {
+JOptionPane.showMessageDialog(this, "User deleted successfully!");
+} else {
+JOptionPane.showMessageDialog(this, "User not found!");
+}
+} catch (Exception ex) {
+ex.printStackTrace();
+}
+}
+}
+public static void main(String[] args) {
+    new CRUDJdbcSwing();
+}
+}
